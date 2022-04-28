@@ -1,0 +1,146 @@
+*{
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+	box-sizing: border-box;
+}
+ol, ul{list-style: none;}
+a{text-decoration: none; color:inherit;}
+body{
+	font-family: "Poiret One";
+	color: #555;
+}
+@keyframes fadein {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+/*main*/
+#main{
+	width: 100%;
+	background-color: transparent;
+}
+#wraper{
+	background-color: #fff;
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+}
+#main .headpost{
+	padding: 8rem 8rem 4rem 8rem;
+	line-height: 2;
+	animation: fadein 1s forwards;
+}
+
+#main .headpost h2{
+	font-size: 4rem;
+	margin-bottom: 2rem;
+	font-family: "Hahmlet";
+}
+#main .headpost #image{
+	margin-bottom: 4rem;
+	width: 100%;
+	height: 0;
+	padding-top: calc(50/100*100%);
+	background-image: url(../img/CoffeeYield.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#main > #wraper > .posts{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	
+	animation: fadein 1s forwards;
+}
+section {padding-bottom: 4rem;}
+
+.graph{
+	width: 80%;
+	height: auto;
+	margin: auto;
+	padding: 4rem 0;
+	font-family: "Patua One";
+	font-weight: bold;
+}
+.graph > div{
+	width: 100%;
+	line-height: 3rem;
+}
+.graph > div p{
+	width: 100%;
+	text-align: right;
+	color: #999;
+	font-family: "Poiret One";
+}
+
+.graph li p{
+	color: #333;
+	float: left;
+	width: 25%;
+	margin: 1rem 0;
+	line-height: 3rem;
+	text-align: center;
+	border-left: 1px solid #eee;
+}
+.bar{
+	float: right;
+	width: 75%;
+	height: 3rem;
+	background-color: #eee;
+	margin: 1rem 0;
+	border-radius: 0.7rem;
+	position: relative;
+}
+.fill{
+	height: 100%;
+	border-radius: 0.7rem;
+}
+.bar1{
+	width: 37.4%;
+	background-color: rgb(61, 182, 61);
+}
+.bar2{
+	width: 17.1%;
+	background-color: rgb(253, 47, 47);
+}
+.bar3{
+	width: 8.4%;
+	background-color: rgb(238, 238, 54);
+}
+.bar4{
+	width: 7.1%;
+	background-color: rgb(252, 176, 36);
+}
+.bar5{
+	width: 4.3%;
+	background-color: rgb(149, 227, 255);
+}
+
+.bar span{
+	position: absolute;
+	color: #777;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.bar #txt1{
+	position: absolute;
+	left: 39.4%;
+}
+.bar #txt2{
+	position: absolute;
+	left: 19.1%;
+}
+.bar #txt3{
+	position: absolute;
+	left: 10.4%;
+}
+.bar #txt4{
+	position: absolute;
+	left: 9.1%;
+}
+.bar #txt5{
+	position: absolute;
+	left: 6.3%;
+}

@@ -1,0 +1,75 @@
+*{
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+	box-sizing: border-box;
+}
+ol, ul{list-style: none;}
+a{text-decoration: none; color:inherit;}
+body{
+	font-family: "Poiret One";
+	color: #555;
+}
+@keyframes fadein {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+/*main*/
+#main{
+	width: 100%;
+	background-color: transparent;
+}
+
+#wraper{
+	background-color: #fff;
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+}
+
+#main > #wraper > .posts{
+	width: 100%;
+	animation: fadein 1s forwards;
+}
+.posts > div{
+	padding: 4rem 4rem 0 4rem;
+	text-align: left;
+}
+.posts > div:first-child{
+	padding-top: 8rem;
+}
+.posts > div:last-child{
+	padding-bottom: 8rem;
+}
+
+.sub{
+	margin-left: 4rem;
+}
+
+
+.topBtn{
+	padding: 0.5rem;
+}
+.topBtn .btn{
+	border: 2px solid #999;
+	border-radius: 0;
+	background-color: transparent;
+	color: #999 !important;
+	cursor: pointer;
+	display: block;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.8rem;
+	font-weight: 900;
+	height: 3rem;
+	line-height: 3rem;
+	padding: 0 2rem;
+	text-align: center;
+	margin: 2rem auto;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.topBtn .btn:hover{
+	border: 2px solid #784e04;
+	color: #784e04 !important;
+}
+
+

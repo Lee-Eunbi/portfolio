@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>벽돌깨기</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(218, 252, 243);
+      }
+
+      #container {
+        width: 600px;
+        padding-top: 100px;
+        margin: auto;
+      }
+      canvas {
+        background-color: #fff;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h2>벽돌깨기 게임</h2>
+      <canvas
+        id="myCanvas"
+        width="600"
+        height="400"
+        style="border: 1px solid #999"
+      ></canvas>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      //공이 한번에 프레임에 이동하는 값. 숫자가 커지면 공이 움직이는 속도가 빨라지고, -가 붙으면 시작할때 공의 진행 방향이 바뀝니다.
+      let dx = -2.5;
+      let dy = -2.5;
+      //공의 처음 위치
+      let x = canvas.width / 2;
+      let y = canvas.height - 50;
+      //바의 크기, 위치
+      const barWidth = 80;
+      let barX = (canvas.width - barWidth) / 2; //바의 왼쪽 끝
+      let barX2 = (canvas.width + barWidth) / 2; //바의 오른쪽 끝
+      //키보드 방향키
+      let right = false;
+      let left = false;
+      //블록
+      const blockPadding = 5; //블록 사이 간격
+      const blockMargin = 25; //블록과 캔버스 사이의 간격
+      const blockWidth = (canvas.width - blockMargin * 2 - blockPadding * 4) / 5; //블록의 넓이. 한줄에 5개의 블록을 그릴 것이기 때문에 캔버스의 넓이에서 좌우 margin과 블록사이 padding을 뺀 후 5로 나눔.
+      const blockHeight = 25; //블록의 높이
+      const blocks = []; //4행 5열 배열
+      for (let i = 0; i < 5; i++) {
+        blocks[i] = [];
+        for (let j = 0; j < 4; j++) {
+          blocks[i][j] = { x: 0, y: 0, status: 1 };
+        }
+      }
+      //점수
+      let score = 0;
+
+      //처음 페이지 로드 시 게임 설명 화면
+      function startText() {
+        ctx.beginPath();
+        ctx.rect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "rgba(0,0,0,0.5)";
+        ctx.fill();
+        ctx.closePath();
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#eee";
+        ctx.fillText(
+          "화면을 클릭하거나 스페이스바를 누르면 게임이 실행됩니다.",
+          90,
+          canvas.height / 2 - 30
+        );
+        ctx.font = "14px Arial";
+        ctx.fillText(
+          "How to play : 마우스  or  키보드( '←', '→' )",
+          180,
+          canvas.height / 2 + 30
+        );
+      }
+
+      function drawBall() {
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "skyblue";
+        ctx.fill();
+        ctx.closePath();
+      }
+      function drawBar() {
+        //rect로는 모서리가 둥근 사각형을 그리기 힘들기 때문에 lineTo를 사용해 바를 생성, 이동 시 양쪽 끝을 같이 이동시킵니다.
+        ctx.beginPath();
+        ctx.lineWidth = 10;
+        ctx.lineCap = "round";
+        ctx.moveTo(barX, canvas.height - 35);
+        ctx.lineTo(barX2, canvas.height - 35);
+        ctx.strokeStyle = "#999";
+        ctx.stroke();
+        ctx.closePath();
+      }
+      function drawBlocks() {
+        //status속성으로 status가 1일때에만 블록을 그리도록 합니다. 블록이 공과 닿으면 status 값이 바뀌어 화면에서 사라지게 됩니다.
+
+        for (let i = 0; i < 5; i++) {
+          for (let j = 0; j < 4; j++) {
+            if (blocks[i][j].status == 1) {
+              //블록의 크기+여백 만큼 간격을 띄워 블록을 그립니다.
+              let blockX = i * (blockWidth + blockPadding) + blockMargin;
+              let blockY = j * (blockHeight + blockPadding) + blockMargin;
+              blocks[i][j].x = blockX;
+              blocks[i][j].y = blockY;
+              ctx.beginPath();
+              ctx.rect(blockX, blockY, blockWidth, blockHeight);
+              ctx.fillStyle = "lightgreen";
+              ctx.fill();
+              ctx.closePath();
+            }
+          }
+        }
+      }
+      function drawScore() {
+        ctx.font = "14px Arial";
+        ctx.fillStyle = "#555";
+        ctx.fillText("score : " + score, 520, 390);
+      }
+
+      function keyDown(e) {
+        if (e.keyCode == 39) {
+          right = true;
+        } else if (e.keyCode == 37) {
+          left = true;
+        }
+      }
+      function keyUp(e) {
+        if (e.keyCode == 39) {
+          right = false;
+        } else if (e.keyCode == 37) {
+          left = false;
+        }
+      }
+      function mouseMove(e) {
+        let mouseX = e.clientX - canvas.offsetLeft;
+
+        //mouseX값은 바의 중앙이기 때문에 캔버스의 양쪽 끝까지 움직이도록 하면 바의 절반이 가려지게 됩니다. 그러므로 바의 이동범위를 barWidth/2 값을 사용해 조정해줍니다.
+        if (mouseX > barWidth / 2 && mouseX < canvas.width - barWidth / 2) {
+          barX = mouseX - barWidth / 2;
+          barX2 = mouseX + barWidth / 2;
+        }
+      }
+
+      document.addEventListener("mousemove", mouseMove, false);
+      document.addEventListener("keydown", keyDown, false);
+      document.addEventListener("keyup", keyUp, false);
+
+      //x(공의 중심부)가 블록에 닿게되면 공의 진행 방향을 바꾸고 닿은 블록은 status=0으로 사라지게 합니다. 점수도 1점씩 올라가도록 하고 모든 블록(20개)이 사라지면 alert창을 띄운 후 새로고침 합니다.
+      function collision() {
+        for (let i = 0; i < 5; i++) {
+          for (let j = 0; j < 4; j++) {
+            let b = blocks[i][j];
+            if (b.status == 1) {
+              if (
+                x > b.x &&
+                x < b.x + blockWidth &&
+                y > b.y &&
+                y < b.y + blockHeight
+              ) {
+                dy = -dy;
+                b.status = 0;
+                score++;
+                if (score == 20) {
+                  alert("YOU WIN!!\nSCORE : " + score);
+                  document.location.reload();
+                }
+              }
+            }
+          }
+        }
+      }
+
+      function gameStart() {
+        ctx.clearRect(0, 0, 600, 400);
+        drawBall();
+        drawBar();
+        drawBlocks();
+        collision();
+        drawScore();
+
+        //공이 벽에 닿으면 튕겨나가도록 합니다.
+        if (x < 10 || x > canvas.width - 10) {
+          dx = -dx;
+        }
+        if (y + dy < 10) {
+          dy = -dy;
+        } else if (y + dy > canvas.height - 40) {
+          //공의 좌표가 바(bar)보다 낮아졌을때
+          if (x > barX && x < barX2 && x < barX + barWidth) {
+            //바의 넓이 안이면 공을 튕겨내고
+            dy = -dy;
+          } else if (y == canvas.height - 30) {
+            //그 외엔 gameover 메시지를 띄웁니다.
+            alert("GAME OVER\nSCORE : " + score);
+            document.location.reload();
+          }
+        }
+
+        //방향키를 누르면 8씩 이동(캔버스 넓이 안에서만)
+        if (right && barX < canvas.width - barWidth) {
+          barX += 8;
+          barX2 += 8;
+        }
+        if (left && barX > 0) {
+          barX -= 8;
+          barX2 -= 8;
+        }
+        x += dx;
+        y += dy;
+      }
+
+      drawBlocks();
+      drawBall();
+      drawBar();
+      drawScore();
+      startText();
+
+
+      //화면 클릭 시 게임 실행(한번만 실행.)
+      window.addEventListener("click", () => {
+        setInterval(gameStart,10);
+      }, {once: true});
+
+      //스페이스바를 누르면 게임 실행(한번만 실행.)
+      document.addEventListener("keydown", (e) => {
+        if (e.keyCode == 32) {
+          setInterval(gameStart,10);
+        }
+      }, {once: true});
+
+      
+
+      
+    </script>
+  </body>
+</html>

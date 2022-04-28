@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>In Coffee</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=divice-width,initial-scale=1">
+	<!--폰트어썸-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+	<!--외부정의 css-->
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/media.css" />
+	<!--제이쿼리_라이브러리-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!--외부정의 js-->
+	<script src="js/custom.js" defer></script>
+	<!--favicon-->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<!--wrap-->
+	<div id="wrap">
+		<!--header-->
+		<header id="header">
+			<a href="index.html" class="logo">In Coffee</a>
+			<p>
+				Coffee is a brewed drink prepared from roasted coffee beans,<br>
+				the seeds of berries from certain flowering plants in the Coffea genus.
+			</p>
+			<button type="button" id="start"><i class="far fa-play-circle"></i></button>
+		</header>
+		<!--nav-->
+		<nav id="nav">
+			<ul class="menu">
+				<li id="history"></li>
+				<li id="varieties"></li>
+				<li id="production"></li>
+			</ul>
+
+			<ul class="icon">
+				<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="#"><i class="far fa-envelope"></i></a></li>
+			</ul>
+		</nav>
+		<div id="navPanelToggle"><i class="fas fa-bars"></i></div>
+		<!--main-->
+		<div id="main">
+			<!--posts-->
+			<section class="posts">
+				<div class="contain">
+					<div id="img">
+						<img src="img/thumb1.jpg" alt="">
+					</div>
+					<div id="txt">
+						<h2>History</h2>
+						<p class="t1">The earliest credible evidence of coffee-drinking or knowledge of the coffee tree
+							appears in the middle of the 15th century in the accounts of Ahmed al-Ghaffar in Yemen.</p>
+						<p><button type="button" id="hisBtn" class="button">more &gt;</button></p>
+					</div>
+
+				</div>
+				<hr>
+				<div id="ch" class="contain">
+					<div id="txt">
+						<h2>Varieties</h2>
+						<p class="t1">Coffee varieties are the diverse subspecies derived through selective breeding or
+							natural selection of coffee plants.</p>
+						<p><button type="button" id="varBtn" class="button">more &gt;</button></p>
+					</div>
+					<div id="img">
+						<img src="img/thumb2.jpg" alt="">
+					</div>
+				</div>
+				<hr>
+				<div class="contain">
+					<div id="img">
+						<img src="img/thumb3.jpg" alt="">
+					</div>
+					<div id="txt">
+						<h2>Production</h2>
+						<p class="t1">In 2020, world production of green coffee beans was 175,647,000 60 kg bags, led by
+							Brazil with 39% of the total. Vietnam, Indonesia, and Colombia were other major producers.
+						</p>
+						<p><button type="button" id="proBtn" class="button">more &gt;</button></p>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!--footer-->
+		<footer id="footer">
+			<section class="split">
+				<section>
+					<h3>Recipe</h3>
+					<ul class="links">
+						<li><a href="#">Cafe latte</a></li>
+						<li><a href="#">Cafe mocha</a></li>
+						<li><a href="#">Affogato</a></li>
+					</ul>
+					<ul class="links">
+						<li><a href="#">Cappuccino</a></li>
+						<li><a href="#">Vanilla latte</a></li>
+						<li><a href="#">Caramel latte</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Health<br>effects</h3>
+					<ul class="links">
+						<li><a href="#">Digestion</a></li>
+						<li><a href="#">Mortality</a></li>
+						<li><a href="#">Mental health</a></li>
+					</ul>
+					<ul class="links">
+						<li><a href="#">Cancer</a></li>
+						<li><a href="#">Liver disease</a></li>
+						<li><a href="#">diabetes(Type II)</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icon">
+						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="#"><i class="far fa-envelope"></i></a></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<form method="post" action="#">
+					<div class="fields">
+						<div class="field">
+							<input type="text" name="name" id="name" placeholder="Name" />
+						</div>
+						<div class="field">
+							<input type="text" name="email" id="email" placeholder="Email" />
+						</div>
+						<textarea name="message" id="message" rows="3" placeholder="Message"></textarea>
+					</div>
+					<button class="button" type="submit">Send Message</button>
+				</form>
+			</section>
+		</footer>
+		<!--copyright-->
+		<div id="info">
+			<ul>
+				<li>Address</li>
+				<li>안산시 고잔동 541-1 <br>
+					KR 동서코아 3층</li>
+			</ul>
+			<ul>
+				<li>Phone</li>
+				<li>010-1111-1111</li>
+			</ul>
+			<ul>
+				<li>Email</li>
+				<li>leeeunbi@naver.com</li>
+			</ul>
+		</div>
+		<p class="copyright">&copy;Untitled. All right reserved.</p>
+	</div>
+	<div id="topBtn"><img src="img/top.png" alt=""></div>
+</body>
+
+</html>

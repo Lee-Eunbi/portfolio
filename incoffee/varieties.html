@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>In Coffee</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=divice-width,initial-scale=1">
+	<!--폰트어썸-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+	<!--외부정의 css-->
+	<link rel="stylesheet" href="css/varieties.css" />
+	<link rel="stylesheet" href="css/media.css" />
+	<!--제이쿼리_라이브러리-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!--외부정의 js-->
+	<script src="js/custom.js"></script>
+	<!--favicon-->
+	<link rel="shortcut icon" href="/portfolio/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<!--main-->
+	<div id="main">
+		<div id="wraper">
+			<!--head-post-->
+			<article class="headpost">
+				<div class="major">
+					<h2>원두의 품종</h2>
+				</div>
+				<p>원두의 6대 요소인 신맛, 단맛, 쓴맛, 바디감, 아로마, 플레이버는<br> 원두 생산지의 토질과 온도, 강수량, 습도, 해발 고도, 로스팅 정도 등에 따라서 달라진다.</p>
+				<div id="image"></div>
+
+			</article>
+			<!--posts-->
+			<section class="posts">
+				<article>
+					<h2>
+						아라비카<br>
+						Arabica
+					</h2>
+					<div id="subImg" class="img1"></div>
+					<p>인류 역사상 최초로 재배된 종이다. 커피벨트 중에서도 해발 800m 이상의 고산지, 고원에서 주로 생산되며 고급 품종으로 취급된다.</p>
+					<button type="button" class="button">more &gt;</button>
+				</article>
+				<article>
+					<h2>
+						로부스타<br>
+						Robusta
+					</h2>
+					<div id="subImg" class="img2"></div>
+					<p>병충해에 강하고 수확량이 많은 Coffea canephora라는 종에서 수확한 커피. 주로 고도가 600m 이하인 낮은 지역에서 나오는 커피이다.</p>
+					<button type="button" class="button">more &gt;</button>
+				</article>
+				<article>
+					<h2>
+						리베리카<br>
+						Liberica
+					</h2>
+					<div id="subImg" class="img3"></div>
+					<p>카네포라와 아라비카에 비해 품종이 다양하지 않고, 상품성도 떨어져 일부 국가에서 내수용으로만 생산되고 있어 정보가 많지 않다.</p>
+					<button type="button" class="button">more &gt;</button>
+				</article>
+				<article>
+					<h2>
+						티피카<br>
+						Typica
+					</h2>
+					<div id="subImg" class="img4"></div>
+					<p>티피카는 수 세기 전부터 존재해 온 가장 오래되고, 가장 중요한 품종 중 하나로 자바, 마라고지페, 티모르 하이브리 등의 변종을 낳았다.</p>
+					<button type="button" class="button">more &gt;</button>
+				</article>
+				<article>
+					<h2>
+						버번<br>
+						Bourbon
+					</h2>
+					<div id="subImg" class="img5"></div>
+					<p>티피카의 자연변종인 버번은 고품질, 중간 수준 생산성, 달콤한 플레이버로 알려져 있다. 오래된 종으로 때문에 수많은 변종을 탄생시켰다.</p>
+					<button type="button" class="button">more &gt;</button>
+				</article>
+				<article>
+					<h2>
+						카투라<br>
+						Caturra
+					</h2>
+					<div id="subImg" class="img6"></div>
+					<p>버번의 자연 변종인 카투라는 평균 수준의 생산성, 퀄리티, 생두 크기를 가진 난쟁이 나무(dwarf tree)다. 병충해에 취약하다.</p>
+					<button type="button" class="button">more &gt;</button>
+				</article>
+			</section>
+
+			<!--top button-->
+			<section id="top2" class="topBtn">
+				<button type="button" id="varTopBtn" class="btn">TOP <i class="fas fa-arrow-up"></i></button>
+			</section>
+		</div>
+	</div>
+	<script>
+		const varTopBtn = document.querySelector("#varTopBtn");
+		varTopBtn.addEventListener("click",() => {
+			window.scrollTo({
+		behavior : 'smooth',
+		left : 0,
+		top : 0 
+	});
+		});
+	</script>
+</body>
+
+</html>

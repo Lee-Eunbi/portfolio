@@ -1,0 +1,561 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Raleway:wght@100;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#wrap.stop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/*header*/
+header {
+  height: 8rem;
+  width: 100%;
+  line-height: 8rem;
+  background-color: #000769;
+  color: #fff;
+  margin-bottom: 5rem;
+}
+header > div {
+  width: 90%;
+  min-width: 1000px;
+  height: 100%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo {
+  width: 9rem;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.logo p {
+  font-family: "Oswald";
+  font-size: 1.4rem;
+  margin-left: 2.8rem;
+  width: 7.3rem;
+}
+.logo img {
+  width: 2rem;
+  height: 2.8rem;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bar {
+  float: right;
+  display: flex;
+  justify-content: space-around;
+}
+.header-content {
+  float: left;
+  min-width: 51rem;
+  display: flex;
+  justify-content: space-between;
+}
+#navi {
+  font-family: "Raleway";
+  float: left;
+  font-size: 0.9rem;
+  margin-right: 0.6rem;
+  min-width: 35rem;
+}
+.gnb > li {
+  float: left;
+  margin-right: 3.7rem;
+  position: relative;
+}
+.gnb li a {
+  transition: all 0.5s;
+}
+
+.gnb li.active {
+  color: #fc9823;
+}
+.sub {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000769;
+  z-index: 2;
+  display: none;
+}
+.sub li {
+  width: 11rem;
+  line-height: 1.8rem;
+  margin: auto;
+  padding: 0 0.3rem;
+  text-align: center;
+  cursor: pointer;
+}
+#login {
+  float: left;
+  margin-right: 2rem;
+  width: 4.85em;
+}
+#login i {
+  font-size: 1.3rem;
+  margin-right: 0.7rem;
+  vertical-align: middle;
+}
+#login > span {
+  cursor: pointer;
+  white-space: nowrap;
+}
+#users {
+  font-size: 1.1rem !important;
+  vertical-align: baseline !important;
+}
+#icon {
+  float: left;
+  margin-right: 2.5rem;
+}
+#icon ul li {
+  float: left;
+  margin-right: 1rem;
+}
+#toggle {
+  width: 1.5rem;
+  height: 1rem;
+  position: absolute;
+  top: 3rem;
+  right: 1.2rem;
+  display: none;
+}
+#toggle div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#toggle .toggleBar {
+  width: 100%;
+  height: 0.1rem;
+  border-radius: 0.2rem;
+  background-color: #fff;
+  position: absolute;
+  transition: all 0.5s;
+}
+.bar1 {
+  top: 0;
+}
+.bar2 {
+  top: 50%;
+}
+.bar3 {
+  top: 100%;
+}
+#toggle.toggleBtn .bar1 {
+  transform: rotateZ(-45deg);
+  top: 50%;
+}
+#toggle.toggleBtn .bar2 {
+  display: none;
+}
+#toggle.toggleBtn .bar3 {
+  transform: rotate(45deg);
+  top: 50%;
+}
+.side.menu {
+  left: 0;
+  visibility: visible;
+  opacity: 1;
+}
+#cart {
+  width: 1.6rem;
+  height: 1.6rem;
+  text-align: center;
+  font-size: 0.6rem;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  position: relative;
+}
+#cart .cartImg {
+  background-image: url("../img/cart.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#cart span {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+}
+
+/*main*/
+main > section {
+  width: 90%;
+  min-width: 1000px;
+  margin: auto;
+}
+
+#videoSection {
+  margin-bottom: 4.5rem;
+}
+#videoSection article {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.video {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.video source {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 120%;
+}
+.videoBackground {
+  width: 100%;
+  height: 99.5%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#videoSection .mainText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  color: #fff;
+}
+#videoSection h1 {
+  font-size: 4.5rem;
+  font-family: "Oswald";
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+#videoSection p {
+  margin-bottom: 1.6rem;
+  font-size: 1.3rem;
+  margin-bottom: 3.5rem;
+}
+button {
+  color: #000769;
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 0.9rem;
+  background-color: #fc9823;
+  padding: 0.9rem 1.2rem;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+button a {
+  transition: all 0.5s;
+}
+
+button:hover {
+  background-color: rgba(0, 7, 105, 0.6);
+}
+button:hover a {
+  color: #fff;
+}
+/*===================================*/
+
+#picSection {
+  margin-bottom: 6.5rem;
+}
+#picSection article {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#picSection div {
+  width: 33.33%;
+  height: 32.5rem;
+  text-align: center;
+  margin: 0 1rem;
+}
+#picSection div:first-child {
+  background-image: url("../img/home/homeImage1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 0;
+}
+#picSection div:nth-child(2) {
+  background-image: url("../img/home/homeImage2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#picSection div:nth-child(3) {
+  background-image: url("../img/home/homeImage3.jpg");
+  background-position-x: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 0;
+}
+#picSection p {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 1.8rem;
+  font-family: "Oswald";
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+#picSection a {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 2s;
+  visibility: hidden;
+  opacity: 0;
+}
+#picSection a.on {
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+
+/*===================================*/
+
+#textSection {
+  text-align: center;
+  font-family: "Raleway";
+  height: 34.5rem;
+}
+#textSection article {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#textSection article::before {
+  content: "";
+  display: block;
+  clear: both;
+}
+#textSection > article > * {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 2s;
+  visibility: hidden;
+  opacity: 0;
+}
+#textSection h3 {
+  font-family: "Oswald";
+  font-weight: 500;
+  color: #fc9823;
+  font-size: 3rem;
+  position: absolute;
+  top: 5%;
+}
+#textSection span {
+  font-size: 1.1rem;
+  display: block;
+  top: 27%;
+}
+#textSection p {
+  width: 48rem;
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  padding: 0 0.5rem;
+  top: 37%;
+}
+#textSection button {
+  top: 66%;
+}
+
+#textSection h3.title {
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+}
+#textSection span.subTitle {
+  top: 22%;
+  visibility: visible;
+  opacity: 1;
+}
+#textSection p.text {
+  top: 32%;
+  visibility: visible;
+  opacity: 1;
+}
+#textSection button.moreBtn {
+  top: 71%;
+  visibility: visible;
+  opacity: 1;
+}
+
+/*footer*/
+footer {
+  width: 100%;
+  background-color: #000769;
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Raleway";
+  height: 13.5rem;
+  position: relative;
+  text-align: center;
+}
+
+footer > div {
+  width: 60%;
+  min-width: 761px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2.2rem;
+}
+footer > div > div {
+  display: flex;
+  flex-direction: column;
+}
+footer div span {
+  line-height: 1.9rem;
+}
+footer div div > span:first-child {
+  margin-bottom: 0.2rem;
+}
+.follow ul {
+  display: flex;
+  width: 5rem;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.copyright {
+  width: 100%;
+  height: 2.7rem;
+  line-height: 2.7rem;
+  background-color: #e4e4e4;
+  color: #000769;
+  font-size: 0.9rem;
+  font-weight: 400;
+  position: absolute;
+  bottom: 5px;
+}
+
+/*login modal*/
+.modal {
+  font-family: "Raleway";
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  display: none;
+  z-index: 4;
+}
+.modal > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+}
+.modal h1 {
+  font-family: "Oswald";
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.modal h3 {
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.modal h3 a {
+  color: #fc9823;
+}
+.modal > div p {
+  display: block;
+  margin: 1rem 0;
+}
+.modal > div p a {
+  text-decoration: underline;
+}
+.modal button {
+  width: 100%;
+  color: blue;
+  font-size: 1rem;
+}
+.modal button:hover {
+  background-color: #fc9823;
+  color: #fff;
+}
+
+#joinModal form label {
+  position: relative;
+}
+#joinModal form span {
+  font-size: 0.8rem;
+  position: absolute;
+  right: 0;
+}
+.nameError {
+  top: 27.5%;
+  color: #666;
+}
+.emailError {
+  top: 43%;
+  display: none;
+}
+.passwordError {
+  top: 74.5%;
+  display: none;
+}
+
+.close {
+  position: absolute;
+  top: 7%;
+  right: 7%;
+  font-size: 3.5rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+form input {
+  width: 100%;
+  height: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #666;
+  margin-bottom: 2rem;
+}
+form input:focus {
+  outline: none;
+  border-bottom: 1px solid #fc9823;
+}
+form label {
+  font-style: normal;
+  color: #333;
+  display: block;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,435 @@
+*{
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+	box-sizing: border-box;
+}
+ol, ul{list-style: none;}
+a{text-decoration: none; color:inherit;}
+body{
+	font-family: "Poiret One";
+	color: #555;
+}
+body::before{
+	content: "";
+	display: block;
+	position: fixed;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: -5;
+	background-color: #fff;
+	background-image: linear-gradient(0deg, rgba(126, 105, 62, 0.3), rgba(136, 93, 28, 0.3) 100%), url("../img/bg_coffee.jpg");
+	background-position: center;
+}
+
+@keyframes font{
+	0%{font-size: 7rem;}
+	50%{font-size: 8rem;}
+	100%{font-size: 7rem;}
+}
+@keyframes fadein {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeout{
+	0% {
+		opacity: 1;
+	}
+    100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+/*wrap*/
+#wrap{
+	position: relative;	
+	overflow: hidden;
+}
+
+/*header*/
+#header{
+	/*height: 25rem;*/
+	height: 100vh;
+	line-height: 2rem;
+	position: relative;
+	color: #fff;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	/*min-height: 100vh;
+	margin-top: -20rem;*/
+	padding-bottom: 8rem;	
+	transition: all 0.7s ease-in-out;
+	animation: fadein 1s;
+}
+
+#header .logo{
+	font-family: 'Patua One';
+	font-size: 7rem;
+	font-weight: 100;
+	letter-spacing: 0.05rem;
+	position: absolute;
+	top: 35%;
+	transition: all 0.7s ease-in-out;	
+}
+#header p{
+	position: absolute;
+	letter-spacing: 0.05rem;
+	top: 50%;
+	transition: all 0.3s;
+}
+#header #start{
+	color: #fff;
+	background-color: transparent;
+	font-size: 5rem;
+	position: absolute;
+	top: 65%;
+	left: center;
+	transition: all 0.7s linear;
+	transition: color 0.3s ease-in-out;
+}
+#header #start:hover{
+	color: #784e04;
+	transition: all 0.2s linear;
+}
+
+
+#header.index{
+	height: 20rem;
+}
+#header.index .logo{
+	top: 50%;
+}
+
+/*nav*/
+#nav{
+	height: 4rem;
+	line-height: 4rem;
+	color: #fff;
+	/*display: flex;*/
+	background: rgba(255, 255, 255, 0.3);
+	margin: auto auto 0 auto;
+	/*overflow: hidden;*/
+	padding: 0 2rem 0 0;
+	position: relative;
+	width: 80%;
+	transition: all 0.2s ease-in-out;
+	z-index: 3;
+}
+#nav .menu{
+	width: 50%;	
+	height: 4rem;	
+	display: flex;
+	flex-grow: 1;
+	font-weight: 1000;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+	transition: all 0.2s ease-in-out;
+
+}
+#nav .menu li{
+	width: 8rem;
+	display: block;
+	transition: all 0.2s ease-in-out;
+}
+#nav .menu li a{
+	display: block;
+	outline: none;
+	font-size: 0.8rem;
+	text-align: center;
+	transition: all 0.2s;
+}
+
+
+
+/*영어 -> 한글 변경*/
+#nav > .menu > li:first-child::before{
+	content: "History";
+	display: block;
+	text-align: center;
+	font-size: 0.8rem;
+}
+#nav > .menu > li:nth-child(2)::before{
+	content: "Varieties";
+	display: block;
+	text-align: center;
+	font-size: 0.8rem;
+}
+#nav > .menu > li:nth-child(3)::before{
+	content: "Production";
+	display: block;
+	text-align: center;
+	font-size: 0.8rem;
+}
+#nav > .menu > li.active{
+	color: #784e04 !important;
+	background-color: #fff !important;
+}
+
+
+
+#nav .icon{
+	position: absolute;
+	top: 0;
+	right: 2rem;
+	width: auto;
+	height: 4rem;
+	font-size: 1.5rem;
+}
+#nav .icon li{
+	float: left;
+}
+
+/* Nav Panel */
+
+#navPanelToggle{
+	transition: all 0.2s ease-in-out;
+	position: fixed;
+	top: 0.5rem;
+	right: 0.5rem;
+	border: 0;
+	color: #ffffff;
+	font-size: 2rem;
+	padding: 0.3rem 0.5rem;
+	cursor: pointer;
+	display: none;
+	z-index: 10;
+}
+
+/*main*/
+#main{
+	background-color: #fff;
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+}
+/*indexpage post*/
+#main #mainpage{
+	padding: 0;
+}
+#main > .posts > .contain{
+    width: 100%;
+	height: 100%;
+    display: flex;
+    flex-basis: auto;
+    padding: 2rem;
+	position: relative;
+}
+#main > .posts > .contain > #img > img{
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+}
+#main > .posts > .contain > #txt{
+   width: 100%;
+   height: 100%;
+   margin: auto;
+   line-height: 2rem;
+   padding: 2rem;
+   display: block;
+   position: relative;
+}
+#main > .posts > .contain button{
+	border-color: #999;
+	color: #999 !important;
+	position: absolute;
+	bottom: -2rem;
+	right: 2rem;
+	letter-spacing: 0.1rem;
+	transition: all 0.2s ease-in-out;
+}
+
+.posts hr{
+    border: 1px solid #eee;
+    width: 100%;
+    margin: 2rem 0;
+}
+#main > section:last-child{
+	padding: 4rem;
+}
+
+/*footer*/
+#footer{
+	background-color: #dadcde;
+	color: #555;
+	width: 80%;
+	margin: auto;
+	display: flex;
+	letter-spacing: 2px;
+	/*position: relative;*/
+}
+
+#footer section{
+	flex-basis: 50%;
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding: 4rem 4rem 2rem 4rem;
+	border-left: 2px solid #e2e2e2;
+}
+#footer > .split:first-child{
+	border-left: 0;
+}
+#footer > .split > section{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	border-top: 2px solid #e2e2e2;
+	padding: 3rem;
+}
+#footer > .split > section:first-child{
+	border-top: 0;
+	padding: 3rem;
+}
+#footer > .split > section:last-child{
+	padding: 3rem;
+}
+#footer > .split{
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+#footer > .split > section > h3{
+	padding-right: 3rem;
+}
+#footer > .split > section > .links{
+	width: 100%;
+	line-height: 2rem;
+}
+#footer h3{
+	font-size: 0.8rem;
+}
+
+/*icon*/
+.icon a{
+	position: relative;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.icon li{
+	display: inline-block;
+	padding-right: 2rem;
+}
+.icon li:last-child {
+	padding-right: 0;
+}
+#footer .icon{
+	font-size: 2rem;
+	color: #999;
+}
+
+/*form*/
+form{
+	width: 100%;
+	height: 100%;
+	margin-bottom: 2rem;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+form input[type="text"],
+form textarea{
+	border-color: #e2e2e2;
+	background-color: #fff;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	color: #999;
+}
+form input[type="text"]:focus,
+form textarea:focus{
+	border-color: #784e04;
+}
+form .fields{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+form .field{
+	width: 46%;
+	height: 3rem;
+	margin-bottom: 2rem;
+	border: 2px solid #eee;
+}
+input[type="text"]{
+	width: 100%;
+	height: 100%;
+	padding: 0.7rem;
+}
+form textarea{
+	width: 100%;
+	padding: 0.7rem;
+	border: 2px solid #eee;
+	height: 15rem;
+	resize: none;
+}
+
+/*button*/
+input[type="submit"],
+.button {
+	border: 2px solid #999;
+	background-color: transparent;
+	color: #999 !important;
+	cursor: pointer;
+	display: block;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.8rem;
+	font-weight: 900;
+	height: 3rem;
+	line-height: 3rem;
+	padding: 0 2rem;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	float: right;
+}
+
+
+
+/*copyright*/
+#info{
+	font-family: "Source Sans Pro", Helvetica, sans-serif !important;
+	width: 80%;
+	color: #fff;
+	margin: auto;
+	padding: 4rem 8rem 0 8rem;
+	display: flex;        
+	justify-content: space-between;
+	flex-direction: row;
+	text-align: center;
+	letter-spacing: 2px;
+}
+#info > ul > li:first-child{
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+.copyright{
+	color: #fff;
+	position: relative;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.8rem;
+	line-height: 1.5;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 4rem auto;
+	width: 75%;
+	letter-spacing: 1px;
+}
+
+
+/*top button*/
+#topBtn{
+	position: fixed;
+	width: 3rem;
+	bottom: 2rem;
+	right: 3rem;
+	transition: all 0.3s ease-in-out;
+	display: none;
+	
+}
+#topBtn > img{
+	width: 100%;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	padding: 0.2rem;
+	transition: all 0.3s;
+	box-shadow: 2px 2px 3px #000;
+}
