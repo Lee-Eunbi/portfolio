@@ -97,6 +97,20 @@ joinPage.addEventListener("click", () => {
   joinShow();
 });
 
+//엔터키로 로그인, 회원가입 동작 실행
+document.addEventListener("keyup", onKeyup);
+function onKeyup(e){
+  if (loginModal.style.display=="block"){
+    if(e.keyCode==13){
+      userLogin();
+    }
+  } else if(joinModal.style.display=="block"){
+    if(e.keyCode==13){
+      alertCheck();
+    }
+  }
+}
+
 //로그인 유효성 검사. admin 계정인지, 기존 유저 정보와 일치하는지, 올바른 형식의 이메일인지 등
 loginBtn.addEventListener("click", userLogin);
 
@@ -226,6 +240,7 @@ function passwordCheck(e) {
 }
 //가입 버튼을 클릭하면 빈 칸이 있는지, 위의 조건에 만족하지 못한 항목이 있는지를 다시 한번 체크하고 경고창을 띄운다. 모든 조건이 만족한다면 유저리스트 객체에 새로 가입한 회원 정보를 추가하고 로그인창으로 이동합니다.
 joinBtn.addEventListener("click", alertCheck);
+
 function alertCheck() {
   switch (true) {
     case joinName.value.length == 0: {
@@ -272,6 +287,7 @@ function alertCheck() {
     }
   }
 }
+
 let winSize = window.matchMedia("screen and (min-width: 768px)");
 if (winSize.matches) {
   //화면 사이즈가 768px 이상일 때에만 이벤트가 발생합니다.

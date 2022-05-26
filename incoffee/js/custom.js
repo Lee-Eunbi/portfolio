@@ -72,14 +72,55 @@ if (winSize.matches) {
   });
 }
 
-//more버튼
+
 const hisBtn = document.querySelector("#hisBtn");
 const varBtn = document.querySelector("#varBtn");
 const proBtn = document.querySelector("#proBtn");
+const history = document.getElementById("history");
+const varieties = document.getElementById("varieties");
+const production = document.getElementById("production");
 
-hisBtn.addEventListener("click", historyLoad);
-varBtn.addEventListener("click", varietiesLoad);
-proBtn.addEventListener("click", productionLoad);
+//767px 이하의 화면에서 페이지 로드 시 스크롤을 가장 위로 이동시키고 토글메뉴를 닫는다. 768px 이상의 화면에서는 네비게이션 바가 화면 최상단에 위치하도록 한다.
+if(window.matchMedia("screen and (min-width: 767px)").matches){
+  hisBtn.addEventListener("click", historyLoad);
+  varBtn.addEventListener("click", varietiesLoad);
+  proBtn.addEventListener("click", productionLoad);
+  history.addEventListener("click", historyLoad);
+  varieties.addEventListener("click", varietiesLoad);
+  production.addEventListener("click", productionLoad);
+  $("#nav").show();
+} else{
+  hisBtn.addEventListener("click", () => {
+    $("#main").load("history.html");
+    moveTop();
+  });
+  varBtn.addEventListener("click", () => {
+    $("#main").load("varieties.html");
+    moveTop();
+  });
+  proBtn.addEventListener("click", () => {
+    $("#main").load("production.html");
+    moveTop();
+  });
+  history.addEventListener("click", () => {
+    $("#main").load("history.html");
+    $("#nav").hide();
+    document.getElementById("navPanelToggle").innerHTML = "<i class='fas fa-bars'></i>";
+    moveTop();
+  });
+  varieties.addEventListener("click", () => {
+    $("#main").load("varieties.html");
+    $("#nav").hide();
+    document.getElementById("navPanelToggle").innerHTML = "<i class='fas fa-bars'></i>";
+    moveTop();
+  });
+  production.addEventListener("click", () => {
+    $("#main").load("production.html");
+    $("#nav").hide();
+    document.getElementById("navPanelToggle").innerHTML = "<i class='fas fa-bars'></i>";
+    moveTop();
+  });
+}
 
 //콘텐츠 페이지 로드
 function historyLoad() {
@@ -103,9 +144,7 @@ function productionLoad() {
     top: 320,
   });
 }
-document.getElementById("history").addEventListener("click", historyLoad);
-document.getElementById("varieties").addEventListener("click", varietiesLoad);
-document.getElementById("production").addEventListener("click", productionLoad);
+
 
 //메뉴에 active 클래스 추가
 const act = document.querySelectorAll(".menu > li");
@@ -129,3 +168,4 @@ function toggleBtn() {
   }
 }
 document.getElementById("navPanelToggle").addEventListener("click", toggleBtn);
+

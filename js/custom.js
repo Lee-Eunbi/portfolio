@@ -44,38 +44,49 @@ window.addEventListener("scroll", () => {
   const vis = document.querySelectorAll(".question");
   const visA = document.querySelectorAll(".answer");
 
-  if (doScroll > 0 && doScroll < top1) {
-    menus.forEach((menu) => menu.classList.remove("on"));
-    menus[0].classList.add("on");
-    sk.forEach((s) => s.classList.remove("rot"));
-    skP.classList.remove("rot");
-    rgt.classList.remove("rgt");
-  } else if (doScroll > top1 && doScroll < top2) {
-    menus.forEach((menu) => menu.classList.remove("on"));
-    menus[1].classList.add("on");
+  if(window.matchMedia("screen and (min-width: 767px)").matches){
+    if (doScroll > 0 && doScroll < top1) {
+      menus.forEach((menu) => menu.classList.remove("on"));
+      menus[0].classList.add("on");
+      sk.forEach((s) => s.classList.remove("rot"));
+      skP.classList.remove("rot");
+      rgt.classList.remove("rgt");
+    } else if (doScroll > top1 && doScroll < top2) {
+      menus.forEach((menu) => menu.classList.remove("on"));
+      menus[1].classList.add("on");
+      sk.forEach((s) => s.classList.add("rot"));
+      skP.classList.add("rot");
+      rgt.classList.add("rgt");
+      pf.classList.remove("mov");
+    } else if (doScroll > top2 && doScroll < top3) {
+      menus.forEach((menu) => menu.classList.remove("on"));
+      menus[2].classList.add("on");
+      sk.forEach((s) => s.classList.remove("rot"));
+      skP.classList.remove("rot");
+      rgt.classList.remove("rgt");
+      pf.classList.add("mov");
+      vis.forEach((vi) => vi.classList.remove("vis"));
+      visA.forEach((va) => va.classList.remove("vis"));
+    } else if (doScroll > top3 && doScroll < top4) {
+      menus.forEach((menu) => menu.classList.remove("on"));
+      menus[3].classList.add("on");
+      pf.classList.remove("mov");
+      vis.forEach((vi) => vi.classList.add("vis"));
+      visA.forEach((va) => va.classList.add("vis"));
+    } else if (doScroll > top4 && scrollBottom > bottom) {
+      menus.forEach((menu) => menu.classList.remove("on"));
+      menus[4].classList.add("on");
+    }
+  } else{
+    rgt.classList.add("rgt");
     sk.forEach((s) => s.classList.add("rot"));
     skP.classList.add("rot");
-    rgt.classList.add("rgt");
-    pf.classList.remove("mov");
-  } else if (doScroll > top2 && doScroll < top3) {
-    menus.forEach((menu) => menu.classList.remove("on"));
-    menus[2].classList.add("on");
-    sk.forEach((s) => s.classList.remove("rot"));
-    skP.classList.remove("rot");
-    rgt.classList.remove("rgt");
     pf.classList.add("mov");
-    vis.forEach((vi) => vi.classList.remove("vis"));
-    visA.forEach((va) => va.classList.remove("vis"));
-  } else if (doScroll > top3 && doScroll < top4) {
-    menus.forEach((menu) => menu.classList.remove("on"));
-    menus[3].classList.add("on");
-    pf.classList.remove("mov");
     vis.forEach((vi) => vi.classList.add("vis"));
     visA.forEach((va) => va.classList.add("vis"));
-  } else if (doScroll > top4 && scrollBottom > bottom) {
-    menus.forEach((menu) => menu.classList.remove("on"));
-    menus[4].classList.add("on");
-  }
+  };
+
+  
 });
 
 //네비 메뉴에 on클래스를 추가하는 함수. 토글 형태일시 메뉴를 클릭해도 토글 버튼이 접히도록 하였다.
