@@ -366,6 +366,7 @@ button{
   left: -50%;
   visibility: hidden;
   opacity: 0;
+  overflow: hidden;
 }
 #introduce.rgt{
   left: 0 !important;

@@ -28,23 +28,27 @@ menus.forEach((menu, index) =>
 );
 
 //스크롤을 따라 사이드바에 표시 되도록 설정, 각 파트 애니메이션 설정
-window.addEventListener("scroll", () => {
-  let doScroll = window.pageYOffset;
-  let top1 = window.pageYOffset + sections[1].getBoundingClientRect().top - 300;
-  let top2 = window.pageYOffset + sections[2].getBoundingClientRect().top - 300;
-  let top3 = window.pageYOffset + sections[3].getBoundingClientRect().top - 300;
-  let top4 = window.pageYOffset + sections[4].getBoundingClientRect().top - 500;
-  let bottom = document.querySelector("body").offsetHeight;
-  let scrollBottom = screen.height + doScroll;
 
-  const pf = document.querySelector("#portfolio ul");
-  const sk = document.querySelectorAll("#skill li");
-  const skP = document.querySelector("#skill > p");
-  const rgt = document.querySelector("#introduce");
-  const vis = document.querySelectorAll(".question");
-  const visA = document.querySelectorAll(".answer");
+const pf = document.querySelector("#portfolio ul");
+const sk = document.querySelectorAll("#skill li");
+const skP = document.querySelector("#skill > p");
+const rgt = document.querySelector("#introduce");
+const vis = document.querySelectorAll(".question");
+const visA = document.querySelectorAll(".answer");
+if (window.matchMedia("screen and (min-width: 767px)").matches) {
+  window.addEventListener("scroll", () => {
+    let doScroll = window.pageYOffset;
+    let top1 =
+      window.pageYOffset + sections[1].getBoundingClientRect().top - 300;
+    let top2 =
+      window.pageYOffset + sections[2].getBoundingClientRect().top - 300;
+    let top3 =
+      window.pageYOffset + sections[3].getBoundingClientRect().top - 300;
+    let top4 =
+      window.pageYOffset + sections[4].getBoundingClientRect().top - 500;
+    let bottom = document.querySelector("body").offsetHeight;
+    let scrollBottom = screen.height + doScroll;
 
-  if(window.matchMedia("screen and (min-width: 767px)").matches){
     if (doScroll > 0 && doScroll < top1) {
       menus.forEach((menu) => menu.classList.remove("on"));
       menus[0].classList.add("on");
@@ -77,17 +81,16 @@ window.addEventListener("scroll", () => {
       menus.forEach((menu) => menu.classList.remove("on"));
       menus[4].classList.add("on");
     }
-  } else{
-    rgt.classList.add("rgt");
-    sk.forEach((s) => s.classList.add("rot"));
-    skP.classList.add("rot");
-    pf.classList.add("mov");
-    vis.forEach((vi) => vi.classList.add("vis"));
-    visA.forEach((va) => va.classList.add("vis"));
-  };
-
-  
-});
+  });
+} else {
+  menus.forEach((menu) => menu.classList.remove("on"));
+  rgt.classList.add("rgt");
+  sk.forEach((s) => s.classList.add("rot"));
+  skP.classList.add("rot");
+  pf.classList.add("mov");
+  vis.forEach((vi) => vi.classList.add("vis"));
+  visA.forEach((va) => va.classList.add("vis"));
+}
 
 //네비 메뉴에 on클래스를 추가하는 함수. 토글 형태일시 메뉴를 클릭해도 토글 버튼이 접히도록 하였다.
 function activation() {
@@ -175,25 +178,29 @@ items.forEach((item, index) =>
     if (num == 1) {
       //item1
       modalTitle.innerText = "Portfolio Site(Responsive Web)";
-      modalImg.innerHTML = "<img src='img/detail/portfolio_detail.jpg' alt='portfolio'>";
+      modalImg.innerHTML =
+        "<img src='img/detail/portfolio_detail.jpg' alt='portfolio'>";
       modalImg.setAttribute("href", "index.html");
       modalText[0].style.display = "block";
     } else if (num == 2) {
       //item2
       modalTitle.innerText = "In Coffee(Responsive Web)";
-      modalImg.innerHTML = "<img src='img/detail/incoffee_detail.jpg' alt='incoffee'>";
+      modalImg.innerHTML =
+        "<img src='img/detail/incoffee_detail.jpg' alt='incoffee'>";
       modalImg.setAttribute("href", "incoffee/index.html");
       modalText[1].style.display = "block";
     } else if (num == 3) {
       //item3
       modalTitle.innerText = "TINNY OCEAN(Clone Coding)";
-      modalImg.innerHTML = "<img src='img/detail/tinnyocean_detail.png' alt='tinnyocean'>";
+      modalImg.innerHTML =
+        "<img src='img/detail/tinnyocean_detail.png' alt='tinnyocean'>";
       modalImg.setAttribute("href", "clonecoding/index.html");
       modalText[2].style.display = "block";
     } else if (num == 4) {
       //item4
       modalTitle.innerText = "Mini Shopping Mall";
-      modalImg.innerHTML = "<img src='img/detail/minishop_detail.jpg' alt='MiniShoppingMall'>";
+      modalImg.innerHTML =
+        "<img src='img/detail/minishop_detail.jpg' alt='MiniShoppingMall'>";
       modalImg.setAttribute("href", "miniShopping/index.html");
       modalText[3].style.display = "block";
     } else if (num == 5) {
@@ -202,22 +209,21 @@ items.forEach((item, index) =>
       modalImg.innerHTML = "<img src='img/detail/none.jpg' alt='none'>";
       modalImg.setAttribute("href", "index.html");
       modalText[4].style.display = "block";
-    }
-    else if (num == 6) {
+    } else if (num == 6) {
       //item5
       modalTitle.innerText = "Analog Clock";
-      modalImg.innerHTML = "<img src='img/detail/clock_detail.jpg' alt='clock'>";
+      modalImg.innerHTML =
+        "<img src='img/detail/clock_detail.jpg' alt='clock'>";
       modalImg.setAttribute("href", "analog clock/Analog Clock.html");
       modalText[5].style.display = "block";
-    }
-    else if (num == 7) {
+    } else if (num == 7) {
       //item5
       modalTitle.innerText = "환율계산기(수정중)";
-      modalImg.innerHTML = "<img src='img/detail/exchange_detail.jpg' alt='exchange'>";
+      modalImg.innerHTML =
+        "<img src='img/detail/exchange_detail.jpg' alt='exchange'>";
       modalImg.setAttribute("href", "exchange/index.html");
       modalText[6].style.display = "block";
-    }
-    else if (num == 8) {
+    } else if (num == 8) {
       //item5
       modalTitle.innerText = "Block Game";
       modalImg.innerHTML = "<img src='img/detail/block_detail.jpg' alt='none'>";
